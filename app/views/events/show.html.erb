@@ -1,0 +1,14 @@
+<div>
+  <h1><%= @event.name %></h1>
+  <p>Location: <%= @event.location %></p>
+  <p>Date: <%= @event.date %></p>
+  <p>
+    Host: <%= link_to @event.host.name, @event.host %>
+  </p>
+  <p>
+    Attendes: <%= @event.attendees.map(&:name).join(", ") %>
+  </p>
+  <%= button_to "Enroll", event_enrollments_path(@event.id) %>
+
+  <%= link_to "Back", events_path %>
+</div>
