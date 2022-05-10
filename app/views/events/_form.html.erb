@@ -1,22 +1,33 @@
-<div>
+<div class="row justify-content-center">
+  <div class="col-md-6">
   <%= form_for @event do |f| %>
-    <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <div class="mb-3">
+      <%= f.label :name, class: 'form-label'%>
+      <%= f.text_field :name, class:"form-control" %>
     </div>
     
-    <div>
-      <%= f.label :location %>
-      <%= f.text_field :location %>
+    <div class="mb-3">
+      <%= f.label :location, class: 'form-label'%>
+      <%= f.text_field :location, class:"form-control" %>
     </div>
 
-    <div>
-      <%= f.label :date %>
-      <%= f.date_field :date %>
+    <div class="mb-3">
+      <%= f.label :date, class: 'form-label'%>
+      <%= f.date_field :date, class:"form-control" %>
     </div>
-    
-    <div>
-      <%= f.submit %>
+
+    <div class="mb-3">
+      <%= f.label :cover, class: 'form-label'%>
+      <%= f.file_field :cover, class:"form-control" %>
+    </div>
+
+    <div class="mb-3 form-check">
+      <%= f.label :private, 'Private', class: 'form-check-label' %>
+      <%= f.check_box :private, class: 'form-check-input' %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.button :submit, class: "btn btn-primary" %>
     </div>
     
   <% end %>

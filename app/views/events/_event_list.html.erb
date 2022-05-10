@@ -1,0 +1,7 @@
+<div class="row justify-content-start">
+  <% events.each do |event| %>
+    <div class="col-md-4">
+      <%= render "event", event: event %>
+    </div>
+  <% end %>
+</div>

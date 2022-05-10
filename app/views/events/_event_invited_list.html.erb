@@ -1,0 +1,17 @@
+<h3 class="fs-4">  
+  Invited people
+</h3>
+<% people = event.enrollments.invited.map(&:user) %>
+<% if people.any? %>
+  <ul class="list-group">
+    <% people.each do |person| %>
+      <li class="list-group-item">
+        <%= link_to user_path(person.id), class: "text-dark text-decoration-none" do %>
+          <%= person.name %>
+        <% end %>
+      </li> 
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nobody was invited to this event</p>
+<% end %>

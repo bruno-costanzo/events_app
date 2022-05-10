@@ -1,0 +1,7 @@
+<div class="row">
+  <% events.each do |event| %>
+    <div class="col-md-4">
+      <%= render "events/event", event: event %>
+    </div>
+  <% end %>
+</div>

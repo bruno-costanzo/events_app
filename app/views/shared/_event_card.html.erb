@@ -1,0 +1,32 @@
+<div class="card text-center bg-transparent text-dark">
+  <div class="card-header my-0 py-0">
+    <p class="fs-6 my-0 py-0 fw-bolder">
+      <%= event.name %>
+    </p>
+  </div>
+  <div class="card-body my-0 py-0">
+    <p class="card-title fs-6 my-0 py-0"><i class="bi bi-person"></i> <%= link_to event.host.name, user_path(event.host.id), class: "text-decoration-none" %></p>
+    <div class="card-image pt-0 mt-0">
+      <% if event.cover.present? %>
+        <%= image_tag event.cover.variant(:show), class: "img-fluid" %>
+      <% else %>
+        <%= image_tag 'default_event.png', class: "img-fluid" %>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 my-1">
+        <p class="card-text d-flex justify-content-around">
+          <%= content_tag :date, event.date.strftime("%d/%m"), class: "badge bg-dark" %>
+          <%= content_tag :location, event.location, class: "badge bg-secondary" %>
+        </p>
+      </div>
+      <div class="col-xs-4">
+        <% unless event.private? || event.invited_users.include?(current_user)%>
+          <%= link_to "Assist", event_enrollments_path(event), data: { turbo_method: :post }, class: "btn btn-primary" %>
+        <% else %>
+          <p class="card-text text-right">Privado</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
