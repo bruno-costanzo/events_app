@@ -6,6 +6,7 @@ class EnrollmentsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     enrollment = Enrollment.new(enrollment_params)
+    p enrollment
     if enrollment.save
     else
       flash[:alert] = enrollment.errors.full_messages[0]

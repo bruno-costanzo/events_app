@@ -1,7 +1,8 @@
-<%= render 'shared/actions_navbar' %>
-
+<%= button_to new_event_path, method: :get, class: "btn text-warning fs-1 new-event-btn" do %>
+  <i class="bi bi-plus-circle-fill btn-ev"></i>
+<% end %>
 <% if @events.any? %>
-  <%= render 'event_feed', events: @events %>
+  <%= render 'event_list', events: @events %>
 <% else %>
   <%= 'No events found' %>
 <% end %>

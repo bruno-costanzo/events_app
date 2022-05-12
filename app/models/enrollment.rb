@@ -7,11 +7,12 @@ class Enrollment < ApplicationRecord
 
   validates :event, presence: true
   validates :user, presence: true
-  validate :user_already_enrolled
-  
+  validates :status, presence: true
+  validate :user_already_enrolled, on: :create
+
   private
 
   def user_already_enrolled
-    errors.add(:user, 'is already enrolled') if event.enrollments.where(user_id: user.id).exists?
+    errors.add(:user, 'is already enrolled') if event.enrollments.where(user_id: user.id).any?
   end
 end

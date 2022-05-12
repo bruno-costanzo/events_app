@@ -1,12 +1,18 @@
-<div class="row">
-  <div class="col-md-9">
-    <%= render 'event_invitation_sender', { event: @event, uninvited_users: @uninvited_users } if current_user.host?(@event) %>    
-    <%= render 'shared/event_card', event: @event %>
-  </div>
-  <div class="col-md-3">
-    <%= render 'event_invited_list', event: @event %>
+<div class="col-md-9">
+  <%= render 'event_invitation_sender', { event: @event, uninvited_users: @uninvited_users } if current_user.host?(@event) %>    
+  <%= render 'shared/event_card', event: @event %>
+</div>
+<div class="col-md-3">
+  <div class="row">
+    <div class="col-12 text-start">
+      <%= render 'events/event_invited_list', event: @event %>
+    </div>
+    <div class="col-12 text-start mt-4">
+      <%= render 'events/event_confirmed_list', event: @event %>
+    <end>
   </div>
 </div>
+
 
 
 

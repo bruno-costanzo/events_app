@@ -1,0 +1,23 @@
+<li class="nav-item mx-lg-2 dropdown text-light">
+  <% nav_events = current_user.attended_events.future.order(date: :asc) %>
+  <% if nav_events.any? %>
+    <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" role="button"
+      data-bs-toggle="dropdown" aria-expanded="false" data="bs">Upcoming</a>
+    <ul class="dropdown-menu bg-dark fs-5" aria-labelledby="navbarDropdown">
+      <% nav_events.each do |event| %>
+        <li class="py-1">
+          <%= link_to event, class: "dropdown-item bg-dark text-warning" do %>
+            <span class='badge bg-warning text-dark'>
+              <%= event.date.strftime("%d/%m") %>
+            </span>
+            <%= event.name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <li class="nav-item mx-lg-2 fw-normal rounded-3 mx-md-1">
+      <%= content_tag :span, "No upcoming events", class: "nav-link text-warning" %>
+    </li>
+  <% end %>
+</li>

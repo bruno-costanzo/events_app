@@ -1,0 +1,24 @@
+<ul class="navbar-nav align-items-center">
+  <li class="nav-item bg-dark rounded-3 mx-md-1">
+    <form class="d-flex">
+      <input class="form-control me-2 bg-transparent border-none border-0" type="search" placeholder="Search"
+        aria-label="Search">
+      <button class="btn btn-warning border-none me-1 my-1" type="submit"><i class="bi bi-search color-dark text-dark"></i></button>
+    </form>
+  </li>
+  <% if current_user %>
+    <li class="nav-item bg-dark rounded-3 mx-lg-2">
+      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "btn" do %>
+        <i class="bi bi-power fw-bold fs-4"></i>
+        <span class="nav-link-text fw-bolder fs-4"> Logout</span>
+      <% end %>
+    </li>
+  <% else %>
+    <li class="nav-item bg-dark rounded-3 mx-lg-2">
+      <%= link_to login_path, class: "btn btn-outline-primary" do %>
+        <i class="bi bi-person-circle fw-bolder"></i>
+        <span class="nav-link-text fw-bolder fs-4">Login</span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

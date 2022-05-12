@@ -1,66 +1,17 @@
 <div class="container-fluid">
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg mb-0 p-0 fs-4 mx-lg-2">
     <%= link_to events_path class: "navbar-brand" do %>
-      <% image_tag 'app_icon' %>
-        <% end %>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      <% image_tag 'app_icon', style: "min-width: 85px"%>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <% if current_user.present? %>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <%= link_to user_path(current_user), class: "nav-link text-warning" do %>
-                    <i class="bi bi-person-circle"></i>
-                    <span class=""> Me</span>
-                    <% end %>
-                </li>
-                <li class="nav-item dropdown text-light">
-                  <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false" data="bs"> Upcoming events </a>
-                  <% if nav_events=current_user.attended_events.future.order(date: :asc) %>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <% nav_events.each do |event| %>
-                        <li class="p-2">
-                          <%= link_to event, class: "dropdown-item" do %>
-                            <span class='badge bg-dark'>
-                              <%= event.date.strftime("%d/%m") %>
-                            </span>
-                            <%= event.name %>
-                              <% end %>
-                        </li>
-                        <% end %>
-                    </ul>
-                    <% else %>
-                      <p>No upcoming events</p>
-                      <% end %>
-                </li>
-                <li class="nav-item bg-dark border border-warning rounded-3 text-warning px-1 ms-3 me-3">
-                  <a class="nav-link disabled text-warning" href="#" tabindex="-1" aria-disabled="true"><i
-                      class="bi bi-tv"></i> Watch!</a>
-                </li>
-                <li class="nav-item bg-dark border border-warning py-1 rounded-3">
-                  <form class="d-flex">
-                    <input class="form-control me-2 bg-transparent border-none border-0" type="search" placeholder="Search"
-                      aria-label="Search">
-                    <button class="btn btn-warning border-none me-2" type="submit"><i class="bi bi-search color-dark text-dark"></i></button>
-                  </form>
-                </li>
-              </ul>
-              <% if current_user %>
-                <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-outline-danger" do %>
-                  <i class="bi bi-power"></i>
-                  <span class="nav-link-text"> Logout</span>
-                  <% end %>
-                    <% else %>
-                      <%= link_to login_path, class: "btn btn-outline-primary" do %>
-                        <i class="bi bi-person-circle"></i>
-                        <span class="nav-link-text"> Login</span>
-                        <% end %>
-                          <% end %>
-            </div>
-            <% end %>
+      <span class="navbar-toggler-icon fs-2 text-dark d-flex justify-content-center align-items-center">
+        <i class="bi bi-distribute-vertical text-dark"></i>
+      </span>
+    </button>
+    <% if current_user.present? %>
+      <%= render 'shared/navbar/navbar_items' %>
+    <% end %>     
   </nav>
 </div>

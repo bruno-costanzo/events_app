@@ -1,11 +1,8 @@
 <div class="row text-danger">
   <div class="col-md-12">
     <h2 class="fs-4 badge bg-warning text-dark border border-dark border-3">Send Invitations</h2>
-    <div class="row">
-      <div class="col-md-2">
-        <%= "BUSCADOR" %>
-      </div>
-      <div class="col-md-10">
+    <div class="row">  
+      <div class="col-md-12">
         <% if uninvited_users %>
           <div class="d-flex justify-content-start flex-wrap">
             <% uninvited_users.each do |user| %>
@@ -14,7 +11,7 @@
                   <%= f.hidden_field :user_id, value: user.id %>
                   <%= f.hidden_field :event_id, value: event.id %>
                   <%= f.hidden_field :status, value: "invited" %>
-                  <%= f.submit user.name, class: "btn btn-outline-warning text-warning" %>
+                  <%= f.submit user.name, class: "btn btn-outline-warning" %>
                 <% end %>
               </div>
             <% end %>
@@ -24,4 +21,3 @@
     </div> 
   </div>
 </div>
-<hr>

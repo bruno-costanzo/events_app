@@ -1,0 +1,100 @@
+.wrapper {
+  margin: 10vh
+}
+
+//post card styles
+
+.card {
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+  border-radius: 30px !important;
+  min-height: 400px;
+  border: 3px solid rgb(27, 27, 27) !important;
+
+  @media (max-width: 768px) {
+    min-height: 400px;
+  }
+
+  @media (max-width: 420px) {
+    min-height: 300px;
+    &.card {
+      &.card-has-bg {
+        // transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+        background-repeat: no-repeat;
+        background-position: center center;
+        filter: none;
+    
+        &:hover {
+          .card-img-overlay {
+            transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+          }
+        }
+      }
+
+    }
+  }
+
+  &.card-has-bg {
+    // transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: brightness(0.8);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: inherit;
+    }
+
+    &:hover {
+      transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+      filter: none;
+
+      .card-img-overlay {
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    }
+  }
+
+  .card-footer {
+    background: none;
+    border-top: none;
+
+    .media {
+      img {
+        border: solid 3px rgb(27, 27, 27);
+      }
+    }
+  }
+
+  .card-meta {
+    color: orange
+  }
+
+  .card-body {
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &:hover {
+    .card-body {
+      margin-top: 30px;
+      transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    cursor: pointer;
+    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .card-img-overlay {
+    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
+
+.show-card {
+  height: 70vh;
+  min-height: 100px;
+}
