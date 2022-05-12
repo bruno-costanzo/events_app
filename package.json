@@ -1,0 +1,31 @@
+{
+  "name": "private-events",
+  "version": "1.0.0",
+  "description": "This is an Event App. You can create public or private event and then invite other users in the app, which can accept your invitation an see de list of events available.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bruno-costanzo/events_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bruno-costanzo/events_app/issues"
+  },
+  "homepage": "https://github.com/bruno-costanzo/events_app#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.8.1",
+    "sass": "^1.51.0"
+  }
+}
