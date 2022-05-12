@@ -19,9 +19,9 @@
               <%= content_tag :span, event.date.strftime("%d/%m"), class: "" %>
             </small>
           </div>
-          <div class="card-footer text-center">
-            <div class="media mt-1">
-              <%= image_tag 'user.jpg' , class: 'rounded-circle mw-50px' , style: "max-width: 70px;" %>
+          <div class="card-footer mt-1">
+            <div class="media">
+              <%= image_tag 'user.jpg' , class: 'rounded-circle mw-50px ms-5' , style: "max-width: 70px;" %>
               <div class="media-body d-flex flex-wrap justify-content-around mt-2 p-1 fs-4">
                 <small class="badge bg-dark text-warning">
                   <%= event.host.name %>

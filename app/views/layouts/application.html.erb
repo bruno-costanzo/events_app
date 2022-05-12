@@ -12,14 +12,18 @@
 
   <body>
     <div class="container">
-      <%= render "shared/navbar" %>
-      <% flash.each do |name, msg| %>
-        <div class="alert alert-primary" role="alert">
-            <%= msg %>
+      <div class = "row">
+        <div class = "col-md-12">
+          <%= render "shared/navbar" %>
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-primary" role="alert">
+                <%= msg %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-      <div class="row text-center">
-        <%= yield %>
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
       </div>
     </div> 
   </body>
